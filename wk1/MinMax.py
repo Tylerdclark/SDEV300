@@ -13,9 +13,9 @@ input3 = int(input("Enter your third integer: "))
 input4 = int(input("Enter your fourth integer: "))
 input5 = int(input("Enter your fifth integer: "))
 
-#built in min() and max() to avoid excessive conditionals 
+# built in min() and max() to avoid excessive conditionals
 print()
 minimum = min(input1, input2, input3, input4, input5)
-print("The minimum integer was",minimum)
+print("The minimum integer was", minimum)
 maximum = max(input1, input2, input3, input4, input5)
-print("The maximum integer was",maximum)
+print("The maximum integer was", maximum)
