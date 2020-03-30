@@ -8,7 +8,7 @@ user_choice = 0  # initialize the user selection at first run
 def menu():
     """Displays a menu and collects the input from the user"""
     return int(input("\nSelect from the following menu: \n1. Generate 3-Digit Lottery number \n2. Generate 4-Digit "
-                     "Lottery number\n3. Exit the Application"))
+                     "Lottery number\n3. Exit the Application\n"))
 
 
 def get_lotto(num):
