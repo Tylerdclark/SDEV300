@@ -7,11 +7,20 @@ print("This application calculates the minimum and maximum of 5 integer values\
  entered by a user.")
 
 # int() converts input's string to int
-input1 = int(input("Enter your first integer: "))
-input2 = int(input("Enter your second integer: "))
-input3 = int(input("Enter your third integer: "))
-input4 = int(input("Enter your fourth integer: "))
-input5 = int(input("Enter your fifth integer: "))
+valid_input = False
+
+while not valid_input:
+
+    try:
+        input1 = int(input("Enter your first integer: "))
+        input2 = int(input("Enter your second integer: "))
+        input3 = int(input("Enter your third integer: "))
+        input4 = int(input("Enter your fourth integer: "))
+        input5 = int(input("Enter your fifth integer: "))
+        valid_input = True
+
+    except ValueError:
+        print("Please use integers!")
 
 # built in min() and max() to avoid excessive conditionals
 print()
