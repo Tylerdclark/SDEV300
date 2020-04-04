@@ -1,6 +1,8 @@
 # state_bird_flower.py
 """Display, sort and update a List of U.S States containing the State Capital and State Bird"""
 
+user_selection = -1
+
 database = {'Alabama': ['Montgomery', 'Yellowhammer', 'Camellia'],
             'Alaska': ['Juneau', 'Willow Ptarmigan', 'Forget Me Not'],
             'Arizona': ['Phoenix', 'Cactus Wren', 'Saguaro Cactus Blossom'],
@@ -55,27 +57,72 @@ database = {'Alabama': ['Montgomery', 'Yellowhammer', 'Camellia'],
 
 
 def menu():
-    int(input('1. Display all U.S. States in Alphabetical order along with Capital and Flower \n\
-    2. Search for a specific state and display the appropriate Capital and Bird \n\
-    3. Update a Bird for a specific state   4. Exit the program'))
+    """takes in the int value to be used by other methods and logic"""
+    try:
+        return int(input('1. Display all U.S. States in Alphabetical order along with Capital and Flower \n2. Search '
+                         'for a specific state and display the appropriate Capital and Bird \n3. Update a Bird for a '
+                         'specific state \n4. Exit the program\n'))
+    except ValueError:
+        print('please use Integer for menu selection')
+
+
+def show_user(state, state_info):
+    """Utility method used by other methods to print state info to output"""
+    capital, bird, flower = state_info
+    print(f'{state}: Capital: {capital}, Bird: {bird}, Flower: {flower}')
 
 
 def display():
+    """displays every element in the database by unpacking the list values"""
     for entry in database:
-        capital, bird, flower = database.get(entry)
-        return f'{entry}: Capital: {capital}, Bird: {bird}, Flower: {flower} '
+        show_user(entry, database.get(entry))
+    print('\n')
 
 
 def search(term):
+    """Returns the values for the given key else returns not found"""
     entry = term.title()
     if entry in database:
-        capital, bird, flower = database['Nevada']
-        return f'{entry}: Capital: {capital}, Bird: {bird}, Flower: {flower} '
+        return database[entry]
     else:
         return 'Not found!'
 
 
+print('Welcome to the State Bird and Flower Program!')
+print('*** Please choose from the following menu ***\n')
+# main logic
+while user_selection != 4:
+    user_selection = menu()
 
+    if user_selection == 1:
+        display()
+        continue
 
-# display()
-print(search("nevada"))
+    if user_selection == 2:
+        state_input = input('Which state would you like to the info for?').title()
+        result = search(state_input)
+        if result != 'Not found!':
+            show_user(state_input, result)
+            continue
+        else:
+            print(result + '\n')
+            continue
+
+    if user_selection == 3:
+        bird_change_selection = input('Which state would you like to change the bird for?').title()
+        result = search(bird_change_selection)
+        if result != 'Not Found!':
+            print(f'Current bird: {database[bird_change_selection][1]}')
+            new_bird = input('What is the new bird?')
+            database[bird_change_selection][1] = new_bird
+            print("*** New Bird updated ***\n")
+            show_user(bird_change_selection, database[bird_change_selection])
+        else:
+            print(result)
+            continue
+
+    else:
+        print('\nNot a valid response!\n')
+        continue
+
+print('*** Thank you for using the State Bird and Flower Program! ***')
