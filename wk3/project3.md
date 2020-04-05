@@ -1,8 +1,8 @@
-# SDEV 300 - Project 1
+# SDEV 300 - Project 3
 
 **Author:** Tyler D Clark  
 **Date:** 5 April 2020  
-This post will serve as documentation for the project 3. Includes test cases and screenshots for the state bird/flower project and the squared/cubed set program.
+This post will serve as documentation for the project 3. Includes test cases and screenshots for the state bird/flower program and the squared/cubed set program.
 ___
 </br>
 
