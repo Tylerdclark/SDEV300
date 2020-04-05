@@ -59,7 +59,7 @@ database = {'Alabama': ['Montgomery', 'Yellowhammer', 'Camellia'],
 def menu():
     """takes in the int value to be used by other methods and logic"""
     try:
-        return int(input('1. Display all U.S. States in Alphabetical order along with Capital and Flower \n2. Search '
+        return int(input('\n1. Display all U.S. States in Alphabetical order along with Capital and Flower \n2. Search '
                          'for a specific state and display the appropriate Capital and Bird \n3. Update a Bird for a '
                          'specific state \n4. Exit the program\n'))
     except ValueError:
@@ -69,64 +69,72 @@ def menu():
 def show_user(state, state_info):
     """Utility method used by other methods to print state info to output"""
     capital, bird, flower = state_info
-    print(f'\n{state}: Capital: {capital}, Bird: {bird}, Flower: {flower}\n')
-
-
-def display():
-    """displays every element in the database by calling show_user() over all"""
-    for entry in sorted(database):
-        show_user(entry, database.get(entry))
-    print('\n')
+    print(f'{state}: Capital: {capital}, Bird: {bird}, Flower: {flower}')
 
 
 def search(state):
-    """Returns the values for the given key else returns not found"""
-    entry = state.title()
+    """Utility method that returns the values for the given key else returns not found"""
+    entry = state.title()  # convert to title case before searching with input
     if entry in database:
         return database[entry]
     else:
         return 'Not found!'
 
 
+def display_all():
+    """displays every element in the database by calling show_user() over all"""
+    for entry in sorted(database):
+        show_user(entry, database.get(entry))
+    print('\n')
+
+
+def display():
+    """displays the state info for the state gathered from input"""
+    state_input = input('Which state would you like to the info for?\n').title()
+    result = search(state_input)  # convert to title case before searching with input
+    if result != 'Not found!':
+        show_user(state_input, result)
+    else:
+        print(result + '\n')  # this will simply print 'not found'
+
+
+def change_bird():
+    """Takes in a state and changes the bird for it"""
+    bird_change_selection = input('Which state would you like to change the bird for?\n').title()
+    result = search(bird_change_selection)
+    if result != 'Not found!':
+        print(f'Current bird: {database[bird_change_selection][1]}')  # access second element directly
+        new_bird = input('What is the new bird?\n')
+        database[bird_change_selection][1] = new_bird
+        print("*** New Bird updated ***")
+        show_user(bird_change_selection, database[bird_change_selection])  # display to user before carrying on
+    else:
+        print(result)  # this will simply print 'not found'
+
+
 print('Welcome to the State Bird and Flower Program!')
-print('*** Please choose from the following menu ***\n')
+print('*** Please choose from the following menu ***')
 # main logic
 while user_selection != 4:
     user_selection = menu()
-    # use display function before continuing to another loop of the while loop
+
     if user_selection == 1:
+        display_all()
+        continue
+
+    if user_selection == 2:
         display()
         continue
 
-    if user_selection == 2:  # convert to title case before searching with input
-        state_input = input('Which state would you like to the info for?\n').title()
-        result = search(state_input)
-        if result != 'Not found!':
-            show_user(state_input, result)
-            continue
-        else:
-            print(result + '\n')  # this will simply print 'not found'
-            continue
-
-    if user_selection == 3:  # convert to title case before searching with input
-        bird_change_selection = input('Which state would you like to change the bird for?\n').title()
-        result = search(bird_change_selection)
-        if result != 'Not Found!':
-            print(f'Current bird: {database[bird_change_selection][1]}')  # access second element directly
-            new_bird = input('What is the new bird?\n')
-            database[bird_change_selection][1] = new_bird
-            print("*** New Bird updated ***")
-            show_user(bird_change_selection, database[bird_change_selection])  # display to user before carrying on
-            continue
-        else:
-            print(result)  # this will simply print 'not found'
-            continue
+    if user_selection == 3:  
+        change_bird()
+        continue
 
     if user_selection == 4:
         break
 
     else:  # to catch everything else
-        print('\nNot a valid response!\n')
+        print('Not a valid response!')
         continue
 
 print('*** Thank you for using the State Bird and Flower Program! ***')
