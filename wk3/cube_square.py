@@ -9,7 +9,7 @@ def menu():
         return int(input('\n1. Display the Square and Cube for Integers ranging from 1 to 100\n2. Search the sets for a'
                          ' specific Integer and display the Square and Cube values\n3. Display the Union of Square and '
                          'Cube sets\n4. Display the Intersection of Square and Cube sets\n5. Display the Difference of '
-                         'Square and Cube sets\n6. Exit the program'))
+                         'Square and Cube sets\n6. Exit the program\n'))
     except ValueError:
         print('Please use integers!')
 
@@ -46,9 +46,10 @@ while user_selection != 6:
             set_search = int(input('What Integer would you like to search for within the sets'))
             squared = set_search ** 2
             cubed = set_search ** 3
-            print(f'Integer:{set_search}, Square value: {squared}, Cube value: {cubed}')
-            print(f'In the set x^2 over [1,100]: {squared in square()}')
-            print(f'In the set x^3 over [1,100]: {cubed in cube()}')
+            if squared in square() and cubed in cube():
+                print(f'Integer:{set_search}, Square value: {squared}, Cube value: {cubed}')
+            else:
+                print('Integer not in sets')
             continue
 
         except ValueError:
