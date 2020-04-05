@@ -63,25 +63,25 @@ def menu():
                          'for a specific state and display the appropriate Capital and Bird \n3. Update a Bird for a '
                          'specific state \n4. Exit the program\n'))
     except ValueError:
-        print('please use Integer for menu selection')
+        print('please use Integer for menu selection')  # this may be redundant with the else statement @ bottom
 
 
 def show_user(state, state_info):
     """Utility method used by other methods to print state info to output"""
     capital, bird, flower = state_info
-    print(f'{state}: Capital: {capital}, Bird: {bird}, Flower: {flower}')
+    print(f'\n{state}: Capital: {capital}, Bird: {bird}, Flower: {flower}\n')
 
 
 def display():
-    """displays every element in the database by unpacking the list values"""
-    for entry in database:
+    """displays every element in the database by calling show_user() over all"""
+    for entry in sorted(database):
         show_user(entry, database.get(entry))
     print('\n')
 
 
-def search(term):
+def search(state):
     """Returns the values for the given key else returns not found"""
-    entry = term.title()
+    entry = state.title()
     if entry in database:
         return database[entry]
     else:
@@ -93,35 +93,38 @@ print('*** Please choose from the following menu ***\n')
 # main logic
 while user_selection != 4:
     user_selection = menu()
-
+    # use display function before continuing to another loop of the while loop
     if user_selection == 1:
         display()
         continue
 
-    if user_selection == 2:
+    if user_selection == 2:  # convert to title case before searching with input
         state_input = input('Which state would you like to the info for?').title()
         result = search(state_input)
         if result != 'Not found!':
             show_user(state_input, result)
             continue
         else:
-            print(result + '\n')
+            print(result + '\n')  # this will simply print 'not found'
             continue
 
-    if user_selection == 3:
+    if user_selection == 3:  # convert to title case before searching with input
         bird_change_selection = input('Which state would you like to change the bird for?').title()
         result = search(bird_change_selection)
         if result != 'Not Found!':
-            print(f'Current bird: {database[bird_change_selection][1]}')
+            print(f'Current bird: {database[bird_change_selection][1]}')  # access second element directly
             new_bird = input('What is the new bird?')
             database[bird_change_selection][1] = new_bird
-            print("*** New Bird updated ***\n")
-            show_user(bird_change_selection, database[bird_change_selection])
+            print("\n*** New Bird updated ***")
+            show_user(bird_change_selection, database[bird_change_selection])  # display to user before carrying on
         else:
-            print(result)
+            print(result)  # this will simply print 'not found'
             continue
 
-    else:
+    if user_selection == 4:
+        break
+
+    else:  # to catch everything else
         print('\nNot a valid response!\n')
         continue
 
