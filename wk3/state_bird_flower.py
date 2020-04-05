@@ -99,7 +99,7 @@ while user_selection != 4:
         continue
 
     if user_selection == 2:  # convert to title case before searching with input
-        state_input = input('Which state would you like to the info for?').title()
+        state_input = input('Which state would you like to the info for?\n').title()
         result = search(state_input)
         if result != 'Not found!':
             show_user(state_input, result)
@@ -109,14 +109,15 @@ while user_selection != 4:
             continue
 
     if user_selection == 3:  # convert to title case before searching with input
-        bird_change_selection = input('Which state would you like to change the bird for?').title()
+        bird_change_selection = input('Which state would you like to change the bird for?\n').title()
         result = search(bird_change_selection)
         if result != 'Not Found!':
             print(f'Current bird: {database[bird_change_selection][1]}')  # access second element directly
-            new_bird = input('What is the new bird?')
+            new_bird = input('What is the new bird?\n')
             database[bird_change_selection][1] = new_bird
-            print("\n*** New Bird updated ***")
+            print("*** New Bird updated ***")
             show_user(bird_change_selection, database[bird_change_selection])  # display to user before carrying on
+            continue
         else:
             print(result)  # this will simply print 'not found'
             continue
