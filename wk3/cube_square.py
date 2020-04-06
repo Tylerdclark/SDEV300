@@ -1,7 +1,7 @@
 # cube_square.py
 """determines the union, intersection and difference of the square and cube of integers ranging from 1 to 100"""
 
-user_selection = 1
+user_selection = -1
 
 
 def menu():
@@ -107,6 +107,6 @@ while user_selection != 6:
     if user_selection == 6:
         break
     else:
-        print('Invalid Selection')
+        print('Not a valid response!')
 
 print('Thank you for using the Square and Cube from 1 to 100 Program!')

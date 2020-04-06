@@ -85,7 +85,6 @@ def display_all():
     """displays every element in the database by calling show_user() over all"""
     for entry in sorted(database):
         show_user(entry, database.get(entry))
-    print('\n')
 
 
 def display():
@@ -95,7 +94,7 @@ def display():
     if result != 'Not found!':
         show_user(state_input, result)
     else:
-        print(result + '\n')  # this will simply print 'not found'
+        print(result)  # this will simply print 'not found'
 
 
 def change_bird():
@@ -114,7 +113,7 @@ def change_bird():
 
 print('Welcome to the State Bird and Flower Program!')
 print('*** Please choose from the following menu ***')
-# main logic
+# main logic which simply calls other methods
 while user_selection != 4:
     user_selection = menu()
 
@@ -126,7 +125,7 @@ while user_selection != 4:
         display()
         continue
 
-    if user_selection == 3:  
+    if user_selection == 3:
         change_bird()
         continue
 
