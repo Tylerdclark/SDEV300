@@ -8,13 +8,13 @@ user_selection = 'Y'
 
 def menu():
     """Takes user input to determine whether to continue or not"""
-    return input('Do you want to play the Matrix Game?\nEnter Y for Yes or N for No:').upper()
+    return input('Do you want to play the Matrix Game?\nEnter Y for Yes or N for No:\n').upper()
 
 
 def input_array():
     """Prompts a user for input before create an 3 by 3 array"""
     try:
-        integers_input = input('Please enter 9 integers delimited by spaces.')
+        integers_input = input('Please enter 9 integers delimited by spaces.\n')
         integer_array = np.array(integers_input.split()).reshape(3, 3)
         return integer_array.astype(int)
     except ValueError:
@@ -33,7 +33,7 @@ def print_array(array):
 def matrix_operation_options():
     """Gets the input from the user regarding the matrix operation"""
     return input('Select a Matrix Operation from the list below:\na. Addition\n'
-                 'b. Subtraction\nc. Matrix Multiplication\nd. Element by element multiplication').upper()
+                 'b. Subtraction\nc. Matrix Multiplication\nd. Element by element multiplication\n').upper()
 
 
 def show_result(array):
@@ -67,7 +67,7 @@ while user_selection != 'N':
             show_result(result_array)
         elif matrix_selection == 'C':
             print('You have selected Matrix Multiplication. The results are:')
-            result_array = np.dot(array_one, array_two)
+            result_array = np.matmul(array_one, array_two)
             show_result(result_array)
         elif matrix_selection == 'D':
             print('You have selected Element by element multiplication. The results are:')

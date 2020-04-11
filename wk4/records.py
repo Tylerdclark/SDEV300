@@ -3,6 +3,7 @@
 import re
 import pandas as pd
 
+# get_file
 df = pd.read_csv('../wk4/MOCK_DATA.csv', sep=',', header=0)
 
 
