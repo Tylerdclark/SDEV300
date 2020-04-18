@@ -1,5 +1,6 @@
 # data_analysis.py
 """allows a user to load one of two CSV files and then perform histogram analysis and plots"""
+import pandas as pd
 
 
 def menu():
@@ -13,22 +14,26 @@ print('******** Welcome to the Python Data Analysis App ********')
 user_input = menu()
 
 
-def population_data():
+def population_from_file():
     pass
 
 
-def housing_data():
-    pass
+def pd_population_data():
+    return pd.read_csv('../wk5/PopChange.csv', sep=',', header=0)
+
+
+def pd_housing_data():
+    return pd.read_csv('../wk5/Housing.csv', sep=',', header=0)
 
 
 while user_input != 3:
 
     if user_input == 1:
-        population_data()
+        print(pd_population_data())
         user_input = menu()
 
     if user_input == 2:
-        housing_data()
+        pd_housing_data()
         user_input = menu()
 
 
