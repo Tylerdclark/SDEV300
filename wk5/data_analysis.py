@@ -126,12 +126,10 @@ def plot_hist(column_list):
     """Plots a histogram from column data passed as a list"""
     global display_count
     display_count += 1
-    plt.hist = plt.hist(column_list, len(column_list), density=True, facecolor='b', alpha=0.75)
+    plt.hist(column_list, len(column_list), density=True, facecolor='b', alpha=0.75)
     plt.grid(True)
-    fig = plt
-    fig.savefig(f'../wk5/display{display_count}.png')
-    fig.clf()
-    # plt.figure().savefig(f'../wk5/display.png')
+    plt.savefig(f'../wk5/display{display_count}.png')
+    plt.show()
 
 
 print('******** Welcome to the Python Data Analysis App ********')
