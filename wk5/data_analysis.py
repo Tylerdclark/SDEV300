@@ -53,7 +53,7 @@ def populate_houses():
 def menu():
     """Collects user input to call other methods with"""
     try:
-        return int(input('Select the file you want to analyze:\n1. Population Data\n2. Housing'
+        return int(input('\nSelect the file you want to analyze:\n1. Population Data\n2. Housing'
                          ' Data\n3. Exit the Program\n'))
     except ValueError:
         print('Please use Integers')
@@ -62,7 +62,7 @@ def menu():
 def population_menu():
     """displays a menu for population data if 1 is given as user_input"""
     print('You have entered Population data')
-    choice = input('Select the Column you want to analyze:\na. Pop Apr 1\nb. Pop Jul 1\nc. '
+    choice = input('\nSelect the Column you want to analyze:\na. Pop Apr 1\nb. Pop Jul 1\nc. '
                    'Change Pop\nd. Exit Column\n')
     if choice == 'a':
         print('You have selected Pop Apr 1')
@@ -85,7 +85,7 @@ def population_menu():
 def houses_menu():
     """Displays a menu for housing data if 2 is given as user-input"""
     print('You have entered Housing data')
-    choice = input('Select the Column you want to analyze:\na. Age\nb. Bedrooms\nc. '
+    choice = input('\nSelect the Column you want to analyze:\na. Age\nb. Bedrooms\nc. '
                    'Weight\nd. Utility\ne. Exit Column\n')
     if choice == 'a':
         print('You have selected Housing age')
@@ -126,7 +126,7 @@ def plot_hist(column_list):
     """Plots a histogram from column data passed as a list"""
     global display_count
     display_count += 1
-    plt.hist(column_list, len(column_list), density=True, facecolor='b', alpha=0.75)
+    plt.hist(column_list, 25, density=True, facecolor='b', alpha=0.75)
     plt.grid(True)
     plt.savefig(f'../wk5/display{display_count}.png')
     plt.show()
