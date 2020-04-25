@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Roboto", Arial, sans-serif;
   color: #444;
+  width: 100%;
 }
 /*
  * Formatting the header area
@@ -14,16 +15,22 @@ header {
   opacity: .9;
   margin-bottom: 10px;
 }
+
 header h1.logo {
+  color: #000;
   margin: 0;
   font-size: 1.7em;
-  color: #fff;
   text-transform: uppercase;
   float: left;
 }
+
 header h1.logo:hover {
-  color: #fff;
+  color: #f54242;
   text-decoration: none;
+}
+
+.time{
+  text-align: center;
 }
 /*
  * Centering the body content
@@ -34,7 +41,7 @@ header h1.logo:hover {
 }
 div {
   padding: 10px 0 30px 0;
-  background-color: #000000;
+  background-color: #fcfcfc;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
