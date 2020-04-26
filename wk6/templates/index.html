@@ -5,49 +5,50 @@
     <meta charset="UTF-8">
     <meta>
     <title>A Page made with Python Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <!-- End head -->
 <!-- Begin body -->
- <body>
-    <header>
-      <div class="container">
-        <h1 class="logo">Ye Pirate Blog</h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-          </ul>
-        </nav></strong>
-      </div>
-<!--Doing inline style block to use jinja templating for background image-->
-      <style type="text/css">
-          body{
-              background-image: url({{ url_for('static', filename='pirate_img.jpg') }});
-              background-repeat: no-repeat;
-              background-attachment: fixed;
-              background-size: 100% 100%;
-          }
-      </style>
-    </header>
-<!-- Begin div -->
+<body>
+  <header>
     <div class="container">
-        <h4 class = "time">Date/time: {{current_time}}</h4>
-        <h1>Why does the corsair stutter?</h1>
-        <p>Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast
-            quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon
-            starboard grog black jack gangway rutters. </p>
-
-        <p>Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring
-            a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout
-            wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.</p>
-
-        <p>Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank
-            crack Jennys tea cup ballast Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas
-            boatswain schooner gaff booty Jack Tar transom spirits.</p>
-        <p>Avast, yuck.</p>
+      <h1 class="logo">Ye Pirate Blog</h1>
+      <strong><nav>
+        <ul class="menu">
+          <li><a>Home</a></li>
+          <li><a>About</a></li>
+        </ul>
+      </nav></strong>
     </div>
-<!-- End div -->
-  </body>
-  <!-- End body -->
+  </header>
+  <nav class = "time">Date/time: {{current_time}}</nav>
+
+<!-- Begin post divs -->
+{% for post in posts %}
+  <div class="container post">
+     <h1>{{post.title}}</h1>
+      <h2>Author: {{post.author}}</h2>
+      <p>{{post.post}}</p>
+      <br>
+  </div>
+{% endfor %}
+<!-- End post divs -->
+<!-- Begin leader board -->
+<div class="container" >
+    <h1 class="leaders">This Week's Mighty Pirate Posters!</h1>
+    <ol>
+        {% for pirate in leader_board%}
+        <li>{{pirate}}</li>
+        {% endfor %}
+    </ol>
+<br>
+</div>
+<footer class="footer">
+    <p>Links</p>
+    <a href="https://en.wikipedia.org/wiki/Piracy">Learn more</a> |
+    <a href="https://www.amazon.com/s?k=pirate+swag&ref=nb_sb_noss_1">Pirate swag</a> |
+    <a href="https://www.parrots.org/pdfs/all_about_parrots/reference_library/beginners_guide_to_parrots/Beginners%20Guide%20to%20Parrot%20Keeping.pdf">Parrot care</a>
+</footer>
+</body>
+<!-- End body -->
 </html>
