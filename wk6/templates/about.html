@@ -12,19 +12,21 @@
       <h1 class="logo">Ye Pirate Blog</h1>
       <strong><nav>
         <ul class="menu">
-          <li><a>Home</a></li>
-          <li><a>About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </nav></strong>
     </div>
   </header>
 <!--End Header-->
-<div class="container post">
+<div class="container post" style="text-align: center">
     <h1>Who we are</h1>
-    <img src ='' alt="img one">
-    <img src ='' alt="img two">
-    <img src ='' alt="img three">
-    <img src ='' alt="img four">
+    <h3>painty the pirate</h3>
+    <img src ='{{ url_for('static', filename='painty_the_pirate.jpg') }}' alt="img one" width="500" height="600">
+    <br>jack sparrow<br>
+    <img src ='{{ url_for('static', filename='jack_sparrow.jpg') }}' alt="img two" width="500" height="600">
+    <br>captain hook<br>
+    <img src ='{{ url_for('static', filename='captain_hook.jpg') }}' alt="img three" width="500" height="600">
 </div>
 <div class="container post">
     <h1>About the pirate ranks</h1>
