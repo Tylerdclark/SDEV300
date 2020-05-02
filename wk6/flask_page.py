@@ -1,6 +1,6 @@
-# my_webpage.py
+# flask_page.py
 """A website using flask and HTML and css templates"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from datetime import datetime
 
 app = Flask(__name__)
@@ -50,6 +50,17 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/makepost', methods=['POST'])
+def make_post():
+    new_post = {
+        'title': request.form['PostTitle'],
+        'author': request.form['UserName'],
+        'post': request.form['PostBody']
+    }
+    posts.append(new_post)
+    return redirect('/')
 
 
 if __name__ == '__main__':
