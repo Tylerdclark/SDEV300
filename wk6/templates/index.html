@@ -33,6 +33,22 @@
   </div>
 {% endfor %}
 <!-- End post divs -->
+<!--Begin add post -->
+<div class="container post">
+    <h1>Make a post!</h1>
+    <form action="/makepost" method="post">
+        <label for="UserName">User Name:</label><br>
+        <input type="text" id="UserName" name="UserName"><br>
+        <label for="PostTitle">Post Title:</label><br>
+        <input type="text" id="PostTitle" name="UserName"><br>
+        <label for="PostBody">Post:</label><br>
+        <textarea id="PostBody" name="UserName" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Make Post">
+    </form>
+    <br>
+</div>
+
+<!--End add post -->
 <!-- Begin leader board -->
 <div class="container" >
     <h1 class="leaders">This Week's Mighty Pirate Posters!</h1>
