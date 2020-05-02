@@ -19,25 +19,64 @@
     </div>
   </header>
 <!--End Header-->
-<div class="container post" style="text-align: center">
+<div class="about container">
     <h1>Who we are</h1>
-    <h3>painty the pirate</h3>
-    <img src ='{{ url_for('static', filename='painty_the_pirate.jpg') }}' alt="img one" width="500" height="600">
-    <br>jack sparrow<br>
-    <img src ='{{ url_for('static', filename='jack_sparrow.jpg') }}' alt="img two" width="500" height="600">
-    <br>captain hook<br>
-    <img src ='{{ url_for('static', filename='captain_hook.jpg') }}' alt="img three" width="500" height="600">
+    <h3>Painty the Pirate</h3>
+    <img class="portrait" src ='{{ url_for('static', filename='painty_the_pirate.jpg') }}' alt="img one" >
+    <P>
+        Love ho! view to be pulled. Whine fast like a sunny parrot. The pirate sings treasure like a dark doubloons. <br>
+        Cable matey tender hail-shot Gold Road pink Yellow Jack reef sails man-of-war bilge rat. Shrouds scourge of <br>
+        the seven seas pink come about hempen halter furl provost fathom dead men tell no tales lad. Ho Brethren of <br>
+        the Coast scuttle transom furl sutler log carouser belaying pin stern.<br>
+    </P>
+    <h3>Jack Sparrow</h3>
+    <img class="portrait" src ='{{ url_for('static', filename='jack_sparrow.jpg') }}' alt="img two" >
+    <p>
+        Belay, jolly parrot. you won't pull the cook islands. Golly gosh! Pieces o' power are forever swashbuckling. <br>
+        Black jack American Main ye pressgang landlubber or just lubber interloper scourge of the seven seas list <br>
+        ahoy galleon. Grog blossom booty keelhaul lad chase Spanish Main fire ship parrel schooner hail-shot. Brig <br>
+        Plate Fleet aye six pounders tack booty warp chantey sloop gabion. <br>
+    </p>
+    <h3>Captain Hook</h3>
+    <img class="portrait" src ='{{ url_for('static', filename='captain_hook.jpg') }}' alt="img three" >
+    <p>
+        Love me lad, ye clear mate! Aye, ye small dubloon- set sails for urchin! Oh, never lead a mast. Lateen sail <br>
+        swing the lead draft grog American Main lookout bucko red ensign reef Nelsons folly. Sutler poop deck grog <br>
+        red ensign ye marooned provost dance the hempen jig fluke lugsail. Take a caulk mutiny provost jury mast <br>
+        belaying pin yo-ho-ho Blimey lugsail holystone interloper. <br><br>
+    </p>
 </div>
 <div class="container post">
     <h1>About the pirate ranks</h1>
-    <table>
-        
+    <table border="1" id="table-rank">
+        <tr>
+            <th>Tier</th>
+            <th>Title</th>
+            <th>Responsibilities</th>
+            <th>Perks</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Ship Captain</th>
+            <th>Ah, dark sailor. go to port royal. God, well. Swabbies fall with halitosis at the scrawny cabo rojo!</th>
+            <th>Gar, never view a wind. God, taste me bung hole, ye cloudy whale! Why does the pin die?</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Boatswain</th>
+            <th>Ho-ho-ho! treasure of adventure. Fall begrudgingly like a real wind.</th>
+            <th>How heavy-hearted. You lead like a whale. The salty jack cruelly fears the tobacco.</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Gunner</th>
+            <th>The pants dies greed like a rough plank. Aye, swashbuckling wench. you won't fear the bikini atoll.</th>
+            <th>Arrr, mark me jack, ye old fish! When the mainland screams for singapore, all landlubbers break proud, heavy-hearted skulls.</th>
+        </tr>
     </table>
+    <br>
 </div>
 
-<div class="container post">
-    <h1>Join the crew!</h1>
-</div>
 <!--Begin Footer-->
 <footer class="footer">
     <p>Links</p>
