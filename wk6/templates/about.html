@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Us</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-</head>
-<body>
-<!--Begin Header-->
-  <header>
-    <div class="container">
-      <h1 class="logo">Ye Pirate Blog</h1>
-      <strong><nav>
-        <ul class="menu">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </nav></strong>
-    </div>
-  </header>
-<!--End Header-->
+{% extends "base.html" %}
+{% block head %}
+<title>About Us</title>
+{% endblock %}
+{% block body %}
 <div class="about container">
     <h1>Who we are</h1>
     <h3>Painty the Pirate</h3>
@@ -76,14 +60,4 @@
     </table>
     <br>
 </div>
-
-<!--Begin Footer-->
-<footer class="footer">
-    <p>Links</p>
-    <a href="https://en.wikipedia.org/wiki/Piracy">Learn more</a> |
-    <a href="https://www.amazon.com/s?k=pirate+swag&ref=nb_sb_noss_1">Pirate swag</a> |
-    <a href="https://www.parrots.org/pdfs/all_about_parrots/reference_library/beginners_guide_to_parrots/Beginners%20Guide%20to%20Parrot%20Keeping.pdf">Parrot care</a>
-</footer>
-<!--End Footer-->
-</body>
-</html>
+{% endblock %}
