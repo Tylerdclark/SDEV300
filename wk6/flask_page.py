@@ -10,6 +10,7 @@ posts = [
     {
         'title': 'Why does the corsair stutter?',
         'author': 'First-Mate Timmy',
+        'color': 'blue',
         'post': "Prow scuttle parrel provost Sail ho "
                 "shrouds spirits boom mizzenmast yardarm."
                 " Pinnace holystone mizzenmast quarter crow's "
@@ -19,6 +20,7 @@ posts = [
     }, {
         'title': 'Nipperkin bilge rat',
         'author': 'Brik, the Depraved',
+        'color': 'orange',
         'post': "Hogshead bilge rat rutters Nelsons folly lee "
                 "mizzenmast Brethren of the Coast bring a spring "
                 "upon her cable doubloon belaying pin. Gold Road "
@@ -29,6 +31,7 @@ posts = [
     }, {
         'title': 'Round capstan transom ho belay',
         'author': 'Davy Jones',
+        'color': 'cyan',
         'post': "Hands jack tender dead men tell no tales tack code"
                 " of conduct me maroon avast grapple. List lanyard "
                 "boom come about aye American Main spyglass crow's "
@@ -49,7 +52,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', current_time=now.strftime("%m/%d/%Y, %H:%M:%S"))
 
 
 @app.route('/makepost', methods=['POST'])
@@ -57,10 +60,21 @@ def make_post():
     new_post = {
         'title': request.form['PostTitle'],
         'author': request.form['UserName'],
+        'color': request.form['Color'],
         'post': request.form['PostBody']
     }
     posts.append(new_post)
+    export_data(posts)
     return redirect('/')
+
+
+def export_data(object_list):
+    with open('../wk6/output.txt', 'w') as output:
+        for dicts in object_list:
+            output.write('Title: ' + str(dicts.get('title')) + '\n')
+            output.write('Author: ' + str(dicts.get('author')) + '\n')
+            output.write('Post: ' +str(dicts.get('post')) + '\n\n')
+
 
 
 if __name__ == '__main__':
