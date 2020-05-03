@@ -1,49 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- Begin head -->
-<head>
-    <meta charset="UTF-8">
-    <meta>
-    <title>A Page made with Python Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-</head>
-<!-- End head -->
+{% extends "base.html" %}
+{% block head %}
+<title>A Page made with Python Flask</title>
+{% endblock %}
 <!-- Begin body -->
-<body>
-  <header>
-    <div class="container">
-      <h1 class="logo">Ye Pirate Blog</h1>
-      <strong><nav>
-        <ul class="menu">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </nav></strong>
-    </div>
-  </header>
-  <nav class = "time">Date/time: {{current_time}}</nav>
-
+{% block body %}
 <!-- Begin post divs -->
 {% for post in posts %}
-  <div class="container post">
-     <h1>{{post.title}}</h1>
-      <h2>Author: {{post.author}}</h2>
-      <p>{{post.post}}</p>
-      <br>
-  </div>
+<div class="container post" >
+    <h1 style="color:{{post.color}}">{{post.title}}</h1>
+    <h2>Author: {{post.author}}</h2>
+    <p>{{post.post}}</p>
+    <br>
+</div>
 {% endfor %}
 <!-- End post divs -->
 <!--Begin add post -->
 <div class="container post">
     <h1>Make a post!</h1>
     <form action="/makepost" method="post">
-        <label for="UserName">User Name:</label><br>
-        <input type="text" id="UserName" name="UserName"><br>
         <label for="PostTitle">Post Title:</label><br>
         <input type="text" id="PostTitle" name="PostTitle"><br>
+        <label for="UserName">User Name:</label><br>
+        <input type="text" id="UserName" name="UserName"><br>
         <label for="PostBody">Post:</label><br>
         <textarea id="PostBody" name="PostBody" rows="4" cols="50"></textarea><br>
+        <label for="Color">Choose a title color:</label>
+        <select id="Color" name="Color">
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="cyan">Cyan</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="green">Green</option>
+        </select>
         <input type="submit" value="Make Post">
+        <input type="reset" value="Reset">
     </form>
     <br>
 </div>
@@ -59,12 +50,4 @@
     </ol>
 <br>
 </div>
-<footer class="footer">
-    <p>Links</p>
-    <a href="https://en.wikipedia.org/wiki/Piracy">Learn more</a> |
-    <a href="https://www.amazon.com/s?k=pirate+swag&ref=nb_sb_noss_1">Pirate swag</a> |
-    <a href="https://www.parrots.org/pdfs/all_about_parrots/reference_library/beginners_guide_to_parrots/Beginners%20Guide%20to%20Parrot%20Keeping.pdf">Parrot care</a>
-</footer>
-</body>
-<!-- End body -->
-</html>
+{% endblock %}
