@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block head %}
+<title>Login to the Pirate blog</title>
+{% endblock %}
+{% block body %}
+<div class="login">
+        <form class="login-form" action="">
+            <div>
+                <h3 style="text-align: center">Login Form</h3>
+                <p style="text-align: center">Login for account access and more!</p>
+            </div>
+            <div>
+                <label>
+                    <input type="text" class="form-input" placeholder="email@example.com">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="password" class="form-input" placeholder="password">
+                </label>
+            </div>
+            <div>
+                <button class="form-button" type="submit">Login</button>
+            </div>
+            <div style="text-align: center">
+            Don't have an account? <a href="#">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
