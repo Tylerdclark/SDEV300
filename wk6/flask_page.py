@@ -73,8 +73,17 @@ def export_data(object_list):
         for dicts in object_list:
             output.write('Title: ' + str(dicts.get('title')) + '\n')
             output.write('Author: ' + str(dicts.get('author')) + '\n')
-            output.write('Post: ' +str(dicts.get('post')) + '\n\n')
+            output.write('Post: ' + str(dicts.get('post')) + '\n\n')
 
+
+@app.route('/login')
+def login():
+    return render_template('login.html', current_time=now.strftime("%m/%d/%Y, %H:%M:%S"))
+
+
+def get_user_pass():   # either pass a string as an argument
+    with open('../wk6/users.txt', 'r' ) as user_file:
+        pass  # or hou can return the dictionary from within the file
 
 
 if __name__ == '__main__':
