@@ -4,28 +4,56 @@
 {% endblock %}
 {% block body %}
 <div class="login">
-        <form class="login-form" action="">
+        <form class="login-form" action="/userlogin" method="post">
             <div>
                 <h3 style="text-align: center">Login Form</h3>
                 <p style="text-align: center">Login for account access and more!</p>
             </div>
             <div>
                 <label>
-                    <input type="text" class="form-input" placeholder="email@example.com">
+                    <input type="text" name="user" class="form-input" placeholder="username">
                 </label>
             </div>
             <div>
                 <label>
-                    <input type="password" class="form-input" placeholder="password">
+                    <input type="password" name="pw" class="form-input" placeholder="password">
                 </label>
             </div>
             <div>
-                <button class="form-button" type="submit">Login</button>
+                <button type="submit">Login</button>
             </div>
+            {% if not logged_in%}
             <div style="text-align: center">
-            Don't have an account? <a href="#">Sign Up</a>
+            Don't have an account? <a href="/signup">Sign Up</a>
+            {% endif %}
+            {% if logged_in%}
+            <div style="text-align: center">
+            Change Pass? <a href="/change">Change Here</a>
+            {% endif %}
             </div>
         </form>
+</div>
+
+    {% if not logged_in%}
+    <div class="login" style="text-align: center; color: #f54242">
+        <p>Please log in!</p>
     </div>
+    {% endif %}
+    {% if logged_in%}
+    <div class="login" style="text-align: center; color: green">
+        <p>Log in successful!</p>
+    </div>
+    {% endif %}
+    {% if wrong_pass %}
+    <div class="login" style="text-align: center; color: #f54242">
+        <p>Wrong password or username!</p>
+    </div>
+    {% endif %}
+    {% if wait %}
+    <div class="login" style="text-align: center; color: #f54242">
+        <p>Too many logins! Please wait</p>
+    </div>
+    {% endif %}
+
 
 {% endblock %}
