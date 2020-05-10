@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block head %}
+<title>Change Password</title>
+{% endblock %}
+{% block body %}
+<div class="login">
+    <form class="login-form" action="/changepass" method="post">
+        <div style="text-align: center">
+            <h3>Change your Password</h3>
+            <p>Password must have the following requirements:</p
+            <ul>
+                <li>Must be at least 8 characters in length</li>
+                <li>Must be no more than 64 characters in length</li>
+                <li>Not be a commonly-used password</li>
+            </ul>
+            <br>
+        </div>
+        <div style="text-align: center">
+
+            <label>
+                <input type="password" name="pw" class="form-input" placeholder="password" minlength="8" maxlength="64" required>
+            </label>
+        </div>
+        <div style="text-align: center">
+            <button type="submit" >Login</button>
+        </div>
+    </form>
+</div>
+{% if bad_pass %}
+<div class="login" style="text-align: center; color: #f54242">
+    <p>That is common pass! please revise.</p>
+</div>
+{% endif %}
+{% if changed_pass %}
+<div class="login" style="text-align: center; color: green">
+    <p>Password updated!</p>
+</div>
+{% endif %}
+{% endblock %}
